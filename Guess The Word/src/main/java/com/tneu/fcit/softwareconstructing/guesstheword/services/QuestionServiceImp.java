@@ -1,8 +1,8 @@
-package main.java.com.tneu.fcit.softwareconstructing.guesstheword.services;
+package com.tneu.fcit.softwareconstructing.guesstheword.services;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.model.Question;
+import com.tneu.fcit.softwareconstructing.guesstheword.model.Question;
 
 import java.util.Random;
 

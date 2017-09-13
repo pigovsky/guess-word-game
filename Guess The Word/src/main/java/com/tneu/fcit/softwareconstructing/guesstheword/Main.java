@@ -44,7 +44,7 @@ public class Main extends Application {
     public void showStartPage(){
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("main/resources/view/StartPage.fxml"));
+            loader.setLocation(Main.class.getResource("/view/StartPage.fxml"));
             AnchorPane page = (AnchorPane)loader.load();
 
             StartPageController controller = loader.getController();
@@ -62,7 +62,7 @@ public class Main extends Application {
     public void showMainPage(int amountOfPlayers, User firstUser, User secondUser, User thirdUser, User fourthUser){
         try{
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("MainPage.fxml"));
+            loader.setLocation(Main.class.getResource("/view/MainPage.fxml"));
             BorderPane page = (BorderPane)loader.load();
 
             MainPageController controller = loader.getController();

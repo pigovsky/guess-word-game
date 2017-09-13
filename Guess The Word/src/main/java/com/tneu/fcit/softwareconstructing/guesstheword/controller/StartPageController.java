@@ -50,8 +50,6 @@ public class StartPageController {
         threePlayers.setToggleGroup(group);
         fourPlayers.setToggleGroup(group);
 
-        onePlayer.setSelected(true);
-
         firstPlayerNameField.setVisible(false);
         secondPlayerNameField.setVisible(false);
         thirdPlayerNameField.setVisible(false);
