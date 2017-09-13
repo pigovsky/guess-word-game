@@ -1,12 +1,12 @@
-package main.java.com.tneu.fcit.softwareconstructing.guesstheword.controller;
+package com.tneu.fcit.softwareconstructing.guesstheword.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.Main;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.model.User;
+import com.tneu.fcit.softwareconstructing.guesstheword.Main;
+import com.tneu.fcit.softwareconstructing.guesstheword.model.User;
 
 public class StartPageController {
     @FXML

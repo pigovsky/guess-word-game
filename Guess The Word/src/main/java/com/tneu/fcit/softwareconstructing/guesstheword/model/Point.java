@@ -1,4 +1,4 @@
-package main.java.com.tneu.fcit.softwareconstructing.guesstheword.model;
+package com.tneu.fcit.softwareconstructing.guesstheword.model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

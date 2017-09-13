@@ -1,4 +1,4 @@
-package main.java.com.tneu.fcit.softwareconstructing.guesstheword;
+package com.tneu.fcit.softwareconstructing.guesstheword;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -8,10 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.controller.MainPageController;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.controller.StartPageController;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.model.Question;
-import main.java.com.tneu.fcit.softwareconstructing.guesstheword.model.User;
+import com.tneu.fcit.softwareconstructing.guesstheword.controller.MainPageController;
+import com.tneu.fcit.softwareconstructing.guesstheword.controller.StartPageController;
+import com.tneu.fcit.softwareconstructing.guesstheword.model.Question;
+import com.tneu.fcit.softwareconstructing.guesstheword.model.User;
 
 import java.io.IOException;
 
