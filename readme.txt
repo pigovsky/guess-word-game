@@ -1,5 +1,7 @@
-zahodish koroche v gru
-i programka asking u a question
-u must guess slovo or bukvu
-i vse krch
-gl hf
+> Заходиш в гру
+> Читаєш питання
+> За допомогою питання намагаєшся відгадати слово або букву зі слова
+> Вгадав слово одразу -> profit 100pts
+> Вгадав букву -> profit 1 pts
+
+Good luck. Have fun!
