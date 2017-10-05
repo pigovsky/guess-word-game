@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Guess_word_game.Models
 {
+    // entity for binding buttons and creating observableCollection
     public class Letter : BindableBase
     {
         private string _value;

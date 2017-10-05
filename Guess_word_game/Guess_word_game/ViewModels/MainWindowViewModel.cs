@@ -9,6 +9,8 @@ using MindFusion.UI.Wpf;
 using System;
 using System.Linq;
 using System.Windows;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Guess_word_game.ViewModels
 {
@@ -16,14 +18,13 @@ namespace Guess_word_game.ViewModels
     {
         #region Fields
         private readonly IQuestionsProvider _questionProvider;
+        private readonly IGameService _gameService;
         private string _title = "Guess word game";
         private bool _isKeyboardEabled;
         private bool _isTextBoxEnabled;
 
         private Question _currentQuestion;
-
-        private int _score;
-
+        
         private string _scoreText;
         private string _task;
         private string _answer;
@@ -86,8 +87,9 @@ namespace Guess_word_game.ViewModels
         #endregion
 
         #region Constructor 
-        public MainWindowViewModel(IQuestionsProvider questionProvider)
+        public MainWindowViewModel(IQuestionsProvider questionProvider, IGameService gameService)
         {
+            _gameService = gameService;
             _questionProvider = questionProvider;
             _currentQuestion = _questionProvider.GetQuestion();
 
@@ -95,6 +97,7 @@ namespace Guess_word_game.ViewModels
             IsKeyboardEnabled = true;
             IsTextBoxEnabled = true;
 
+            _gameService.StartGame();
             InitCells();
         }
         #endregion
@@ -105,22 +108,23 @@ namespace Guess_word_game.ViewModels
             if (String.IsNullOrEmpty(Answer))
                 return;
 
-            if (String.Equals(Answer, _currentQuestion.Answer, StringComparison.CurrentCultureIgnoreCase))
+            if (_gameService.GuessWord(Answer, _currentQuestion.Answer))
             {
-                _score += 100;
-                UpdateScore();
-
+                _gameService.Score += 100;
+                
                 _currentQuestion = _questionProvider.GetQuestion();
                 InitCells();
+
+                MessageBox.Show("+100 points", "Nice");
             }
             else
             {
-                _score -= 100;
-                UpdateScore();
+                _gameService.Score -= 100;
 
                 MessageBox.Show("You are wrong. -100 points, sorry.", "Hahaha");
             }
 
+            UpdateScore();
             Answer = String.Empty;
         }
         #endregion
@@ -153,40 +157,67 @@ namespace Guess_word_game.ViewModels
             if (args == null)            
                return;
             
-            string keyText = string.Empty;
+            string letter = string.Empty;
 
             try
             {
-                keyText = args.Key.GetType().GetProperty("CapitalCase").GetValue(args.Key).ToString();
+                letter = args.Key.GetType().GetProperty("CapitalCase").GetValue(args.Key).ToString();
             }
-            catch (Exception){}
+            catch (Exception) { }
 
-            ValidateKeyText(keyText);
+            CheckLetter(letter);
         }
 
-        private void ValidateKeyText(string keyText)
+        private string GetPressedKeys()
         {
-            if (!string.IsNullOrEmpty(keyText))
+            string pressedKeys = String.Empty;
+
+            foreach (var buttton in ButtonsTextCollection)
             {
-                if (char.IsLetter(keyText[0]))
+                if (!pressedKeys.Contains(buttton.Value))
                 {
-                    if (IsPressed(keyText))
+                    pressedKeys += buttton.Value;
+                }
+            }
+
+            return pressedKeys.ToString();
+        }
+
+        private void CheckLetter(string letter)
+        {
+            if (string.IsNullOrEmpty(letter) || !Regex.IsMatch(letter, @"^[a-zA-Z]+$"))
+            {
+                return;
+            }
+            else
+            {
+                var pressedKeys = GetPressedKeys();
+
+                // if letter was already pressed
+                if (_gameService.IsLetterGuessed(letter, pressedKeys)) 
+                {
+                    return;
+                }
+                else
+                {
+                    // is letter a part of asnwer
+                    if (_gameService.IsKeyLetter(letter, _currentQuestion.Answer))
                     {
-                        return;
+                        // get positions of letter in answer
+                        var letterPositions = _gameService.GetLetterPositions(letter, _currentQuestion.Answer);
+
+                        if (letterPositions.Count > 0)
+                        {
+                            _gameService.Score += letterPositions.Count;
+                            UpdateScore();
+                        }
+
+                        SetLetter(letter, letterPositions);
                     }
                     else
                     {
-                        if (IsKeyLetter(keyText))
-                        {
-                            var letterPositions = GetLetterPositions(keyText);
-
-                            SetLetter(keyText, letterPositions);                        
-                        }
-                        else
-                        {
-                            _score--;
-                            UpdateScore();
-                        }
+                        _gameService.Score--;
+                        UpdateScore();
                     }
                 }
             }
@@ -194,42 +225,9 @@ namespace Guess_word_game.ViewModels
 
         private void UpdateScore()
         {
-            ScoreText = "Score: " + _score.ToString();
+            ScoreText = "Score: " + _gameService.Score.ToString();
         }
-
-        private bool IsPressed(string keyText)
-        {
-            return ButtonsTextCollection.Any(x => x.Value.Equals(keyText));
-        }
-
-        private bool IsKeyLetter(string keyText)
-        {
-            return _currentQuestion.Answer.Any(x => (x.ToString().Equals(keyText)));
-        }
-
-        private List<int> GetLetterPositions(string letter)
-        {
-            List<int> letterPositionsList = new List<int>();
-            
-            for (int i = 0; i < _currentQuestion.Answer.Length; i++)
-            {
-                var letterFromAnswer = _currentQuestion.Answer[i].ToString();
-
-                if (letterFromAnswer.Equals(letter))
-                {
-                    letterPositionsList.Add(i);
-                }
-            }
-
-            if (letterPositionsList.Count > 0)
-            {
-                _score += letterPositionsList.Count;
-                UpdateScore();
-            }
-
-            return letterPositionsList;           
-        }
-
+        
         private void SetLetter(string letter, List<int> positions)
         {
             for (int i = 0; i < positions.Count; i++)
@@ -242,16 +240,11 @@ namespace Guess_word_game.ViewModels
 
         private void CheckWord()
         {
-            var word = string.Empty;
-
-            for (int i = 0; i < ButtonsTextCollection.Count; i++)
+            var word = GetPressedKeys();            
+            
+            if (_gameService.GuessWord(word, _currentQuestion.Answer))
             {
-                word += ButtonsTextCollection[i].Value;
-            }
-
-            if (word.Equals(_currentQuestion.Answer))
-            {
-                _score += 100;
+                _gameService.Score += 100;
                 UpdateScore();
 
                 _currentQuestion = _questionProvider.GetQuestion();

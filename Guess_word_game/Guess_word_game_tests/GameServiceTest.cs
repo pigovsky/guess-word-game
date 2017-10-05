@@ -3,6 +3,7 @@ using Guess_word_game.Abstractions;
 using Guess_word_game.Models;
 using Guess_word_game.Services;
 using Moq;
+using System;
 
 namespace Guess_word_game_tests
 {
@@ -10,15 +11,19 @@ namespace Guess_word_game_tests
     public class GameServiceTest
     {
         [TestMethod]
-        public void GetQuestionReturnsNotNUll()
+        public void KeyLetterReturnsRightValue()
         {
-            var questionProviderMock = new Mock<IQuestionsProvider>();
+            //var gameServiceImpl = new Mock<IGameService>();
+            //gameServiceImpl.Setup(x => x.IsKeyLetter("B", "Berlin")).Returns(true);
 
-            questionProviderMock.Setup(x => x.GetQuestion()).Returns(new Question());
+            //Assert.IsTrue(gameServiceImpl.Object.IsKeyLetter("B", "Berlin"));
+            var gameService = new GameService();
 
-            var gameServiceImpl = new GameService(questionProviderMock.Object);
+            var isKeyLetter = gameService.IsKeyLetter("R", "Berlin");
+            var isNotKeyLetter = gameService.IsKeyLetter("a", "Berlin");
 
-            Assert.IsNotNull(gameServiceImpl.GetTask());
+            Assert.IsTrue(isKeyLetter);
+            Assert.IsFalse(isNotKeyLetter);
         }
     }
 }
