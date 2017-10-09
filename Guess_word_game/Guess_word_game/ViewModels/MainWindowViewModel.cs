@@ -7,10 +7,8 @@ using System.Windows.Input;
 using Prism.Commands;
 using MindFusion.UI.Wpf;
 using System;
-using System.Linq;
-using System.Windows;
-using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace Guess_word_game.ViewModels
 {
@@ -19,6 +17,8 @@ namespace Guess_word_game.ViewModels
         #region Fields
         private readonly IQuestionsProvider _questionProvider;
         private readonly IGameService _gameService;
+        private readonly INotificationService _notificationService;
+
         private string _title = "Guess word game";
         private bool _isKeyboardEabled;
         private bool _isTextBoxEnabled;
@@ -87,9 +87,10 @@ namespace Guess_word_game.ViewModels
         #endregion
 
         #region Constructor 
-        public MainWindowViewModel(IQuestionsProvider questionProvider, IGameService gameService)
+        public MainWindowViewModel(IQuestionsProvider questionProvider, IGameService gameService, INotificationService notificationService)
         {
             _gameService = gameService;
+            _notificationService = notificationService;
             _questionProvider = questionProvider;
             _currentQuestion = _questionProvider.GetQuestion();
 
@@ -115,13 +116,13 @@ namespace Guess_word_game.ViewModels
                 _currentQuestion = _questionProvider.GetQuestion();
                 InitCells();
 
-                MessageBox.Show("+100 points", "Nice");
+                _notificationService.PrintCongratulationPlus100();
             }
             else
             {
                 _gameService.Score -= 100;
 
-                MessageBox.Show("You are wrong. -100 points, sorry.", "Hahaha");
+                _notificationService.PrintSorryMinus100();
             }
 
             UpdateScore();
@@ -161,6 +162,7 @@ namespace Guess_word_game.ViewModels
 
             try
             {
+                // get key text
                 letter = args.Key.GetType().GetProperty("CapitalCase").GetValue(args.Key).ToString();
             }
             catch (Exception) { }
@@ -173,11 +175,8 @@ namespace Guess_word_game.ViewModels
             string pressedKeys = String.Empty;
 
             foreach (var buttton in ButtonsTextCollection)
-            {
-                if (!pressedKeys.Contains(buttton.Value))
-                {
-                    pressedKeys += buttton.Value;
-                }
+            {                
+                pressedKeys += buttton.Value;                
             }
 
             return pressedKeys.ToString();
@@ -187,6 +186,7 @@ namespace Guess_word_game.ViewModels
         {
             if (string.IsNullOrEmpty(letter) || !Regex.IsMatch(letter, @"^[a-zA-Z]+$"))
             {
+                _notificationService.PrintSorryInvalidKey();
                 return;
             }
             else
@@ -196,33 +196,35 @@ namespace Guess_word_game.ViewModels
                 // if letter was already pressed
                 if (_gameService.IsLetterGuessed(letter, pressedKeys)) 
                 {
+                    _notificationService.PrintSorryLetterIsAlreadyGuessed();
                     return;
                 }
                 else
                 {
                     // is letter a part of asnwer
                     if (_gameService.IsKeyLetter(letter, _currentQuestion.Answer))
-                    {
+                    {                        
                         // get positions of letter in answer
                         var letterPositions = _gameService.GetLetterPositions(letter, _currentQuestion.Answer);
 
-                        if (letterPositions.Count > 0)
-                        {
-                            _gameService.Score += letterPositions.Count;
-                            UpdateScore();
-                        }
+                        _notificationService.PrintCongratulationsLetterGuessed(letterPositions.Count);
+
+                        _gameService.Score += letterPositions.Count;
+                        UpdateScore();
 
                         SetLetter(letter, letterPositions);
                     }
                     else
                     {
+                        _notificationService.PrintSorryWrongLetter();
+
                         _gameService.Score--;
                         UpdateScore();
                     }
                 }
             }
         }
-
+          
         private void UpdateScore()
         {
             ScoreText = "Score: " + _gameService.Score.ToString();
@@ -251,6 +253,6 @@ namespace Guess_word_game.ViewModels
                 InitCells();
             }
         }
+        #endregion               
     }
-    #endregion
 }

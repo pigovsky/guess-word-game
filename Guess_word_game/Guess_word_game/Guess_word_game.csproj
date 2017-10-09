@@ -106,6 +106,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Abstractions\IGameService.cs" />
+    <Compile Include="Abstractions\INotificationService.cs" />
     <Compile Include="Abstractions\IQuestionsProvider.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -116,6 +117,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Providers\QuestionProvider.cs" />
     <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

@@ -14,6 +14,7 @@ namespace Guess_word_game
         {
             Container.RegisterType<IQuestionsProvider, QuestionProvider>();
             Container.RegisterType<IGameService, GameService>();
+            Container.RegisterType<INotificationService, NotificationService>();
 
             return Container.Resolve<MainWindow>();
         }
