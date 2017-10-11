@@ -2,7 +2,8 @@
 {
     public struct Task
     {
-        public string question;
-        public string answer;
+        public string Question;
+        public string Answer;
+
     }
 }
