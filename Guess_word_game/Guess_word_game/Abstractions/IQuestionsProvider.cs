@@ -5,5 +5,6 @@ namespace Guess_word_game.Abstractions
     public interface IQuestionsProvider
     {
         Task GetQuestion();
+        bool IsEmpty { get; set; }
     }
 }

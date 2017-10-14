@@ -20,6 +20,8 @@ namespace Guess_word_game.Providers
             };
         }
 
+        public bool IsEmpty { get { return _tasks.Count == 0 ? true : false; } set { } }
+
         public Task GetQuestion()
         {
             return _currentTaskId == _tasks.Count ? new Models.Task() { Question = "You won! Congratulations my friend.", Answer = ""} 

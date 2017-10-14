@@ -12,7 +12,7 @@ namespace Guess_word_game
     {
         protected override DependencyObject CreateShell()
         {
-            Container.RegisterType<IQuestionsProvider, QuestionFromFileProvider>();
+            Container.RegisterType<IQuestionsProvider, QuestionFromWebResourseProvider>();
             Container.RegisterType<IGameService, GameService>();
             Container.RegisterType<INotificationService, NotificationService>();
 

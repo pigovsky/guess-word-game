@@ -13,6 +13,8 @@ namespace Guess_word_game.Providers
         private readonly List<Task> _questions;
         private int _questionId = 0;
 
+        public bool IsEmpty { get { return _questions.Count == 0 ? true : false; }  set { } }
+
         public QuestionFromFileProvider()
         {
             _questions = GetQuestions(); 

@@ -117,11 +117,13 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Models\Letter.cs" />
-    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Providers\QuestionFromWebResourseProvider.cs" />
     <Compile Include="Providers\QuestionFromFileProvider.cs" />
     <Compile Include="Providers\QuestionProvider.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\RestService.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />

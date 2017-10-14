@@ -8,6 +8,7 @@ using Prism.Commands;
 using MindFusion.UI.Wpf;
 using System;
 using System.Text.RegularExpressions;
+using Guess_word_game.Providers;
 using System.Windows;
 
 namespace Guess_word_game.ViewModels
@@ -91,7 +92,14 @@ namespace Guess_word_game.ViewModels
         {
             _gameService = gameService;
             _notificationService = notificationService;
+
             _questionProvider = questionProvider;
+
+            if (_questionProvider.IsEmpty) // if it is no internet connection viewModel will user QuestionFromFileProvider
+            {
+                _questionProvider = new QuestionFromFileProvider();
+            }
+            
             _currentQuestion = _questionProvider.GetQuestion();
 
             ScoreText = "Srore: 0";
@@ -126,7 +134,7 @@ namespace Guess_word_game.ViewModels
             }
 
             UpdateScore();
-            Answer = String.Empty;
+            Answer = "";
         }
         #endregion
 
