@@ -23,7 +23,7 @@ namespace Guess_word_game.ViewModels
         private bool _isKeyboardEabled;
         private bool _isTextBoxEnabled;
 
-        private Question _currentQuestion;
+        private Task _currentQuestion;
         
         private string _scoreText;
         private string _task;
@@ -133,7 +133,7 @@ namespace Guess_word_game.ViewModels
         #region StartingNewTaskMethods
         private void InitCells()
         {
-            Task = _currentQuestion.Task;
+            Task = _currentQuestion.Question;
 
             if (_currentQuestion.Answer.Equals(String.Empty))
             {
@@ -145,7 +145,7 @@ namespace Guess_word_game.ViewModels
 
             for (int i = 0; i < _currentQuestion.Answer.Length; i++)
             {
-                letters.Add(new Letter() { Value = String.Empty });
+                letters.Add(new Letter() { Value = String.Empty });                
             }
 
             ButtonsTextCollection = new ObservableCollection<Letter>(letters);
@@ -184,7 +184,7 @@ namespace Guess_word_game.ViewModels
 
         private void CheckLetter(string letter)
         {
-            if (string.IsNullOrEmpty(letter) || !Regex.IsMatch(letter, @"^[a-zA-Z]+$"))
+            if (!Regex.IsMatch(letter, @"[а-яёЁЇїІіЄєҐґ]$", RegexOptions.IgnoreCase))
             {
                 _notificationService.PrintSorryInvalidKey();
                 return;

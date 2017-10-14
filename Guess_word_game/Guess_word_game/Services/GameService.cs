@@ -34,7 +34,7 @@ namespace Guess_word_game.Services
             {
                 var letterFromAnswer = word[i].ToString();
 
-                if (letterFromAnswer.Equals(letter))
+                if (letterFromAnswer.Equals(letter, StringComparison.CurrentCultureIgnoreCase))
                 {
                     letterPositionsList.Add(i);
                 }

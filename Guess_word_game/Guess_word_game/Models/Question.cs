@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Guess_word_game.Models
 {
-    public class Question: BindableBase
+    public class Task : BindableBase
     {
-        private string _task;
+        private string _question;
 
         private string _answer;
 
-        public string Task
+        public string Question
         {
-            get { return _task; }
-            set { SetProperty(ref _task, value); }
+            get { return _question; }
+            set { SetProperty(ref _question, value); }
         }
 
         public string Answer

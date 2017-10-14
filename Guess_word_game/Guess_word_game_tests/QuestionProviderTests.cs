@@ -15,7 +15,19 @@ namespace Guess_word_game_tests
 
             Assert.IsNotNull(question);
             Assert.IsNotNull(question.Answer);
-            Assert.IsNotNull(question.Task);
+            Assert.IsNotNull(question.Question);
+        }
+
+        [TestMethod]
+        public void GetReturnsDifferentQuestion_Test()
+        {
+            var questionFromFileProvider = new QuestionFromFileProvider();
+
+            var question1 = questionFromFileProvider.GetQuestion();
+
+            var question2 = questionFromFileProvider.GetQuestion();
+
+            Assert.AreNotEqual(question1.Question, question2.Question);
         }
     }
 }
