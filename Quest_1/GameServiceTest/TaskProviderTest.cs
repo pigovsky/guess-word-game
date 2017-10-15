@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 using Quest_1;
 
 namespace Quest_1_Test
@@ -23,6 +24,18 @@ namespace Quest_1_Test
         {
             var taskProviderImp = new TaskProviderImplemet();
             taskProviderImp.GetQuestionsFromFile();
+
+            var firstTask = taskProviderImp.Get();
+            var secondTask = taskProviderImp.Get();
+
+            Assert.AreNotEqual(firstTask, secondTask);
+        }
+
+        [TestMethod]
+        public void TestGetTwoDifferentAnswerFromMethodGetFromRepo()
+        {
+            var taskProviderImp = new TaskProviderImplemet();
+            taskProviderImp.GetQuestionsFromRepo();
 
             var firstTask = taskProviderImp.Get();
             var secondTask = taskProviderImp.Get();

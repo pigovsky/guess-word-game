@@ -10,6 +10,10 @@ namespace Quest_1
     {
         static void Main(string[] args)
         {
+            TaskProviderImplemet taskProviderImplemet = new TaskProviderImplemet();
+            taskProviderImplemet.GetQuestionsFromRepo();
+
+            Console.ReadKey();
         }
     }
 }
