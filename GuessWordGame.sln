@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task", "Task\Task.csproj", "{2AFA8622-4E29-45F8-927C-A1D77F84F2FD}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessWordGame", "Task\GuessWordGame.csproj", "{2AFA8622-4E29-45F8-927C-A1D77F84F2FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuessWordTest", "GuessWordTest\GuessWordTest.csproj", "{A1D179E7-5C7D-47CF-B4FB-6ED649CE5DF3}"
 EndProject

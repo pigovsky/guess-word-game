@@ -3,12 +3,13 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Task;
+using GuessWordGame;
+
 
 namespace GuessWordTest
 {
     [TestClass]
-    public class TaskTest
+    public class TaskProviderTest
     {
         [TestMethod]
         public void TestGetReturnsStringValue()
