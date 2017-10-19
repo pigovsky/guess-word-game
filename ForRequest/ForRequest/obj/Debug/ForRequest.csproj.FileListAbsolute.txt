@@ -1,0 +1,11 @@
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\bin\Debug\ForRequest.exe.config
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\bin\Debug\ForRequest.exe
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\bin\Debug\ForRequest.pdb
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.csprojResolveAssemblyReference.cache
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.Form1.resources
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.Properties.Resources.resources
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.csproj.GenerateResource.Cache
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.exe
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\obj\Debug\ForRequest.pdb
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\bin\Debug\Newtonsoft.Json.dll
+D:\для навчання\Конструювання ПЗ\ForRequest\ForRequest\bin\Debug\Newtonsoft.Json.xml
