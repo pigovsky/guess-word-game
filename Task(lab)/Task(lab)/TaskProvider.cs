@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Task_lab_
 {
-    interface TaskProvider
+    public interface TaskProvider
     {
         Task get();
     }

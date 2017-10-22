@@ -11,7 +11,6 @@ namespace Task_lab_
         public Task get()
         {
             return new Task("Hello","this is test");
-            
         }
     }
 }

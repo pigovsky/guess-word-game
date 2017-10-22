@@ -4,3 +4,9 @@ c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab)\bin\Deb
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab)\obj\Debug\Task(lab).csprojResolveAssemblyReference.cache
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab)\obj\Debug\Task(lab).exe
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab)\obj\Debug\Task(lab).pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Task(lab).exe.config
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task(lab).exe
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task(lab).pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Task(lab).exe
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Task(lab).pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task(lab).csprojResolveAssemblyReference.cache

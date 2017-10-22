@@ -7,3 +7,15 @@ c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab).Tests\b
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.csprojResolveAssemblyReference.cache
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.dll
 c:\users\vetal\documents\visual studio 2015\Projects\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Task(lab).Tests.dll
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Task(lab).Tests.pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Castle.Core.dll
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Moq.dll
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Task(lab).exe
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Task(lab).pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Castle.Core.xml
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Moq.pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Moq.xml
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.csprojResolveAssemblyReference.cache
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.dll
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.pdb
