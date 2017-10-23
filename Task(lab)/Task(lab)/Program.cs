@@ -9,12 +9,6 @@ namespace Task_lab_
     {
         static void Main(string[] args)
         {
-            TaskProviderImpl2 task = new TaskProviderImpl2();
-            Console.WriteLine(task.get().Question);
-            Console.WriteLine(task.get().Question);
-            Console.WriteLine(task.get().Question);
-            Console.ReadLine();
-
         }
     }
 }

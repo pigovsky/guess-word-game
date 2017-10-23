@@ -9,7 +9,6 @@ C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task(lab).pdb
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Task(lab).exe
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Task(lab).pdb
-C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task(lab).csprojResolveAssemblyReference.cache
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab)\obj\Debug\Task_lab_.Properties.Resources.resources
