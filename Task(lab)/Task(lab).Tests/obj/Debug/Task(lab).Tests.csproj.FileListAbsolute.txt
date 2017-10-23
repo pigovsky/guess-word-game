@@ -19,3 +19,5 @@ C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tes
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.csprojResolveAssemblyReference.cache
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.dll
 C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\obj\Debug\Task(lab).Tests.pdb
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Vetal\Desktop\Guess-word_github\guess-word-game\Task(lab)\Task(lab).Tests\bin\Debug\Newtonsoft.Json.xml
