@@ -10,9 +10,16 @@ using System.Windows.Forms;
 
 namespace GuessWordGame
 {
-    public partial class Form1 : Form
+    public interface IMainForm
     {
-        public Form1()
+        string InputWord { get; }
+        string HalfWord { set; }
+        string FirstLastLetter { set; }
+        void setScore(int score);
+    }
+    public partial class MainForm : Form
+    {
+        public MainForm()
         {
             InitializeComponent();
         }
