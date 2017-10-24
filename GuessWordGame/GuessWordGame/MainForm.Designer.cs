@@ -36,10 +36,9 @@
             this.lblQuestion = new System.Windows.Forms.Label();
             this.tboxGuessWord = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblFirstLastLetter = new System.Windows.Forms.Label();
+            this.lblPrompts = new System.Windows.Forms.Label();
             this.btHalfWord = new System.Windows.Forms.Button();
             this.btFirstLastLetters = new System.Windows.Forms.Button();
-            this.lblHalfWord = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,14 +110,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Слово:";
             // 
-            // lblFirstLastLetter
+            // lblPrompts
             // 
-            this.lblFirstLastLetter.AutoSize = true;
-            this.lblFirstLastLetter.Location = new System.Drawing.Point(87, 180);
-            this.lblFirstLastLetter.Name = "lblFirstLastLetter";
-            this.lblFirstLastLetter.Size = new System.Drawing.Size(35, 13);
-            this.lblFirstLastLetter.TabIndex = 6;
-            this.lblFirstLastLetter.Text = "label3";
+            this.lblPrompts.AutoSize = true;
+            this.lblPrompts.Location = new System.Drawing.Point(87, 180);
+            this.lblPrompts.Name = "lblPrompts";
+            this.lblPrompts.Size = new System.Drawing.Size(35, 13);
+            this.lblPrompts.TabIndex = 6;
+            this.lblPrompts.Text = "label3";
             // 
             // btHalfWord
             // 
@@ -138,24 +137,14 @@
             this.btFirstLastLetters.Text = "Перша і остання літера";
             this.btFirstLastLetters.UseVisualStyleBackColor = true;
             // 
-            // lblHalfWord
-            // 
-            this.lblHalfWord.AutoSize = true;
-            this.lblHalfWord.Location = new System.Drawing.Point(62, 242);
-            this.lblHalfWord.Name = "lblHalfWord";
-            this.lblHalfWord.Size = new System.Drawing.Size(35, 13);
-            this.lblHalfWord.TabIndex = 10;
-            this.lblHalfWord.Text = "label5";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 310);
-            this.Controls.Add(this.lblHalfWord);
             this.Controls.Add(this.btFirstLastLetters);
             this.Controls.Add(this.btHalfWord);
-            this.Controls.Add(this.lblFirstLastLetter);
+            this.Controls.Add(this.lblPrompts);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tboxGuessWord);
             this.Controls.Add(this.lblQuestion);
@@ -183,10 +172,9 @@
         private System.Windows.Forms.Label lblQuestion;
         private System.Windows.Forms.TextBox tboxGuessWord;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblFirstLastLetter;
+        private System.Windows.Forms.Label lblPrompts;
         private System.Windows.Forms.Button btHalfWord;
         private System.Windows.Forms.Button btFirstLastLetters;
-        private System.Windows.Forms.Label lblHalfWord;
     }
 }
 
