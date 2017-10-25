@@ -16,7 +16,12 @@ namespace GuessWordGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+			MainForm form = new MainForm();
+			MessageService service = new MessageService();
+			GuessManager manager = new GuessManager();
+			
+			GuessPresenter presenter = new GuessPresenter(form,manager,service);
+            Application.Run(form);
         }
     }
 }

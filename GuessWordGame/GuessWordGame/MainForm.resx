@@ -120,4 +120,32 @@
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>54</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD//////////////////////f7///////////////////////////////////3+////////////////
+        ///////////////////+/////v/////////C3fv/tNb7/7fY+/+32Pz/s9X7/8fg+////////f7/////
+        ///////////////////+/////f7///////+Txfn/C332/wR59v8Fevb/BXr2/wR59v8QgPb/o876////
+        ///8/f///////////////////v////////+UyPr/B3/2/0Oe9/+p0vr/pND7/6XR+/+l0fr/N5j3/wyC
+        9v+l0fr///////3+/////////f7///////+Tyfr/B4P2/z6e9//o9P3//////////////////////93u
+        /P8xmPf/DIb2/6PR+v///////f7///////+/4Pv/C4n2/0Ok9//u9/3/////////////////////////
+        ////////5fL9/zqg9/8SjPb/0Oj7////////////sNr7/wSK9v+v2vr////+/+Dw/f/o9P3/6PT9/+j0
+        /f/o9P3/4vH9//z9/v+Py/n/C472/8Lj+////////////7Td+/8DjvX/tt76/22++P8LkvX/Hpv2/xuZ
+        9v8bmfb/G5n2/xqZ9v8Wl/b/F5j2/wmR9v++4vv///////////+03/v/BZP1/7Le+v+i1/r/Wrj4/2i+
+        +P9mvfj/Z734/2W9+P9vwfn/eMT5/3bD+f9guvj/1Oz8////////////sN77/wWY9v+s3Pr/////////
+        ////////////////////////0+38/6HZ+/+/5fv////////////+/v///////8Ln+/8NoPb/PrP3/+P0
+        /f//////9vz///n9///4/P///P7//+n1/f88sff/A5v2/3nK+P///////f7///3+////////mtn6/wqi
+        9v85tPf/5fX9///////////////////////f8/z/Pbb3/xan9/+g2vr///////3+/////////v//////
+        //+c2/r/Cqf2/z659/+f3Pr/m9v7/5zb+/+c2/r/MrX3/w2n9v+r4Pr///////3+//////////////7/
+        ///8/v///////5rc+v8PrPb/Bqn2/wep9f8HqvX/Bqn2/xWu9v+r4fr///////v+////////////////
+        /////////v////7/////////ye38/73p/P/A6vz/wer8/7zp/P/P7/z///////3+////////////////
+        /////////////////////////f7///////////////////////////////////3+////////////////
+        ////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

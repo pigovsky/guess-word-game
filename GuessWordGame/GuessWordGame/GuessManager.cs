@@ -25,26 +25,30 @@ namespace GuessWordGame
 
 
     }
-    class GuessManager : IGuessManager
+    public class GuessManager : IGuessManager
     {
-        private RegistryKey scoreControler = Registry.LocalMachine;
+        private RegistryKey scoreControler = Registry.CurrentUser;
         private int number_of_item = -1;
         private List<Task> items;
         private Task currentTask;
+        private StringBuilder letters = new StringBuilder();
         public void FirstEntrance()
         {
-            scoreControler.OpenSubKey("GuessWord");
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\");
             if (scoreControler == null)
             {
-                scoreControler.CreateSubKey("GuessWord");
+                scoreControler = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\GuessWord\\");
                 scoreControler.SetValue("Score", "100");
                 scoreControler.Close();
             }
+            scoreControler.Close();
         }
         public int CurrentScore()
         {
-            scoreControler.OpenSubKey("GuessWord");
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\");
+            scoreControler.OpenSubKey(@"SOFTWARE\\GuessWord\\");
             int score =  Convert.ToInt32(scoreControler.GetValue("Score"));
+            scoreControler.Close();
             return score;
         }
         public string getTask()
@@ -64,6 +68,9 @@ namespace GuessWordGame
             else
             {
                 currentTask = items[number_of_item];
+                letters.Clear();
+                for (int i = 0; i < currentTask.Answer.Length; i++)
+                    letters.Append("*");
                 return items[number_of_item].Question;
             }
         }
@@ -85,7 +92,7 @@ namespace GuessWordGame
         }
         public void RaiseScorebyWord()
         {
-            scoreControler.OpenSubKey("GuessWord");
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\",true);
             int score = Convert.ToInt32(scoreControler.GetValue("Score"));
             score = score + 20;
             scoreControler.SetValue("Score",score.ToString());
@@ -93,7 +100,7 @@ namespace GuessWordGame
         }
         public void ReduceScorebyWord()
         {
-            scoreControler.OpenSubKey("GuessWord");
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
             int score = Convert.ToInt32(scoreControler.GetValue("Score"));
             score = score - 10;
             scoreControler.SetValue("Score", score.ToString());
@@ -101,7 +108,7 @@ namespace GuessWordGame
         }
         public void ReduceScorebyLetter()
         {
-            scoreControler.OpenSubKey("GuessWord");
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
             int score = Convert.ToInt32(scoreControler.GetValue("Score"));
             score = score - 1;
             scoreControler.SetValue("Score", score.ToString());
@@ -110,17 +117,17 @@ namespace GuessWordGame
         public string GetWordbyLetter(char letter)
         {
             string answer = currentTask.Answer;
-            string result = "";
+            char[] temp = letters.ToString().ToCharArray();
             for(int i = 0;i < answer.Length; i++)
             {
                 if (letter.ToString().ToLower() == answer[i].ToString().ToLower())
                 {
-                    result += answer[i];
+                    temp[i] = answer.ToCharArray()[i];
                 }
-                else
-                    result += "*";
             }
-            return result;
+            letters.Clear();
+            letters.AppendFormat(new string(temp));
+            return letters.ToString();
         }
         public string HalfOfWord()
         {
@@ -130,6 +137,10 @@ namespace GuessWordGame
             {
                 result += answer[i];
             }
+            for(int i=0;i<5;i++)
+            {
+                ReduceScorebyWord();
+            }
             return result;
         }
         public string LastAndFirst()
@@ -138,6 +149,10 @@ namespace GuessWordGame
             string result = "";
             result += answer[0];
             result += answer[answer.Length - 1];
+            for (int i = 0; i < 3; i++)
+            {
+                ReduceScorebyWord();
+            }
             return result;
         }
         
