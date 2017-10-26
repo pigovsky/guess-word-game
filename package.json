@@ -1,0 +1,26 @@
+{
+  "name": "guess-word-game",
+  "version": "1.0.0",
+  "description": "Guess word game",
+  "main": "game.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IliaTaboo/guess-word-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IliaTaboo/guess-word-game/issues"
+  },
+  "homepage": "https://github.com/IliaTaboo/guess-word-game#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
