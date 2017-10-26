@@ -19,7 +19,7 @@ namespace Task_lab_.Tests
             Assert.IsNotNull(received.Question);
         }
         [TestMethod]
-        public void TaskProviderImpl2Test()
+        public void TestGetReturnsValidTask()
         {
             TaskProviderImpl2 taskpr2 = new TaskProviderImpl2();
             Task t1 = new Task();
@@ -37,7 +37,7 @@ namespace Task_lab_.Tests
             Assert.AreNotEqual(js.Serialize(t1), js.Serialize(t2));
         }
         [TestMethod]
-        public void TaskProviderImpl3Test()
+        public void TestGetReturnsTaskFromLocalRepository()
         {
             var tpr3 = new TaskProviderImpl3();
             tpr3.url = "adskdsahkjdhajkhd";          
