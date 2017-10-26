@@ -10,7 +10,7 @@ namespace Task_lab_.Tests
     public class TaskProviderTest
     {
         [TestMethod]
-        public void getreturn_nullornot()
+        public void GetReturnsNotEmptyTask()
         {
             TaskProviderImpl fortest = new TaskProviderImpl();
             Task received = fortest.get();
