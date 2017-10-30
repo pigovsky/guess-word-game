@@ -39,11 +39,11 @@ public class StartPageController {
 
     private Main main;
 
-    public StartPageController(){
+    public StartPageController() {
     }
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         ToggleGroup group = new ToggleGroup();
         onePlayer.setToggleGroup(group);
         twoPlayers.setToggleGroup(group);
@@ -62,10 +62,10 @@ public class StartPageController {
     }
 
     @FXML
-    private void handleStart(){
-        if(isFieldsValid())
-            main.showMainPage(amountOfPlayers,new User(firstPlayerNameField.getText()),new User(secondPlayerNameField.getText()),
-                    new User(thirdPlayerNameField.getText()),new User(fourthPlayerNameField.getText()));
+    private void handleStart() {
+        if (isFieldsValid())
+            main.showMainPage(amountOfPlayers, new User(firstPlayerNameField.getText()), new User(secondPlayerNameField.getText()),
+                    new User(thirdPlayerNameField.getText()), new User(fourthPlayerNameField.getText()));
     }
 
     /*
@@ -73,8 +73,8 @@ public class StartPageController {
     Shows TextField for each User.
      */
     @FXML
-    private void getAmountOfPlayers(){
-        if(twoPlayers.isSelected()){
+    private void getAmountOfPlayers() {
+        if (twoPlayers.isSelected()) {
             firstPlayerNameField.setVisible(true);
             secondPlayerNameField.setVisible(true);
             thirdPlayerNameField.setVisible(false);
@@ -84,9 +84,8 @@ public class StartPageController {
             twoPlayersLabel.setVisible(true);
             threePlayersLabel.setVisible(false);
             fourPlayersLabel.setVisible(false);
-            amountOfPlayers=2;
-        }
-        else if(threePlayers.isSelected()){
+            amountOfPlayers = 2;
+        } else if (threePlayers.isSelected()) {
             firstPlayerNameField.setVisible(true);
             secondPlayerNameField.setVisible(true);
             thirdPlayerNameField.setVisible(true);
@@ -96,9 +95,8 @@ public class StartPageController {
             twoPlayersLabel.setVisible(true);
             threePlayersLabel.setVisible(true);
             fourPlayersLabel.setVisible(false);
-            amountOfPlayers=3;
-        }
-        else if(fourPlayers.isSelected()){
+            amountOfPlayers = 3;
+        } else if (fourPlayers.isSelected()) {
             firstPlayerNameField.setVisible(true);
             secondPlayerNameField.setVisible(true);
             thirdPlayerNameField.setVisible(true);
@@ -108,9 +106,8 @@ public class StartPageController {
             twoPlayersLabel.setVisible(true);
             threePlayersLabel.setVisible(true);
             fourPlayersLabel.setVisible(true);
-            amountOfPlayers=4;
-        }
-        else{
+            amountOfPlayers = 4;
+        } else {
             firstPlayerNameField.setVisible(true);
             secondPlayerNameField.setVisible(false);
             thirdPlayerNameField.setVisible(false);
@@ -120,27 +117,23 @@ public class StartPageController {
             twoPlayersLabel.setVisible(false);
             threePlayersLabel.setVisible(false);
             fourPlayersLabel.setVisible(false);
-            amountOfPlayers=1;
+            amountOfPlayers = 1;
         }
     }
 
-    private boolean isFieldsValid(){
-        if(amountOfPlayers==1&& firstPlayerNameField.getText()!=null){
+    private boolean isFieldsValid() {
+        if (amountOfPlayers == 1 && firstPlayerNameField.getText() != null) {
             return true;
-        }
-        else if(amountOfPlayers==2&& firstPlayerNameField.getText()!=null&&secondPlayerNameField.getText()!=null){
+        } else if (amountOfPlayers == 2 && firstPlayerNameField.getText() != null && secondPlayerNameField.getText() != null) {
             return true;
-        }
-        else if(amountOfPlayers==3&& firstPlayerNameField.getText()!=null&&secondPlayerNameField.getText()!=null&&thirdPlayerNameField.getText()!=null){
+        } else if (amountOfPlayers == 3 && firstPlayerNameField.getText() != null && secondPlayerNameField.getText() != null && thirdPlayerNameField.getText() != null) {
             return true;
-        }
-        else if(amountOfPlayers==4&& firstPlayerNameField.getText()!=null&&secondPlayerNameField.getText()!=null&&thirdPlayerNameField.getText()!=null&&fourthPlayerNameField.getText()!=null){
+        } else if (amountOfPlayers == 4 && firstPlayerNameField.getText() != null && secondPlayerNameField.getText() != null && thirdPlayerNameField.getText() != null && fourthPlayerNameField.getText() != null) {
             return true;
-        }
-        else return false;
+        } else return false;
     }
 
-    public void setMain(Main main){
+    public void setMain(Main main) {
         this.main = main;
     }
 }
