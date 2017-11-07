@@ -19,13 +19,6 @@ public class MainPageController {
 
     private ObservableList<User> users = FXCollections.observableArrayList();
 
-    public MainPageController() {
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }

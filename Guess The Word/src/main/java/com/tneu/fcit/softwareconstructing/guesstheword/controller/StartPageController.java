@@ -1,12 +1,13 @@
 package com.tneu.fcit.softwareconstructing.guesstheword.controller;
 
+import com.tneu.fcit.softwareconstructing.guesstheword.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import com.tneu.fcit.softwareconstructing.guesstheword.Main;
-import com.tneu.fcit.softwareconstructing.guesstheword.model.User;
+
+import java.io.IOException;
 
 public class StartPageController {
     @FXML
@@ -37,8 +38,6 @@ public class StartPageController {
 
     private int amountOfPlayers;
 
-    private Main main;
-
     public StartPageController() {
     }
 
@@ -62,16 +61,10 @@ public class StartPageController {
     }
 
     @FXML
-    private void handleStart() {
-        if (isFieldsValid())
-            main.showMainPage(amountOfPlayers, new User(firstPlayerNameField.getText()), new User(secondPlayerNameField.getText()),
-                    new User(thirdPlayerNameField.getText()), new User(fourthPlayerNameField.getText()));
+    private void handleStart() throws IOException {
+        Main.showMainPage();
     }
 
-    /*
-    Returns int value of players.
-    Shows TextField for each User.
-     */
     @FXML
     private void getAmountOfPlayers() {
         if (twoPlayers.isSelected()) {
@@ -131,9 +124,5 @@ public class StartPageController {
         } else if (amountOfPlayers == 4 && firstPlayerNameField.getText() != null && secondPlayerNameField.getText() != null && thirdPlayerNameField.getText() != null && fourthPlayerNameField.getText() != null) {
             return true;
         } else return false;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
     }
 }
