@@ -15,29 +15,38 @@ namespace ForRequest
 {
     public partial class Form1 : Form
     {
+
         string TempStar;
-        string Temp;
+        string CheckStar;
+        string Answer;
         int Score = 0;
         private List<Task> tasks;
 
         Random rnd = new Random();
-        string CheckStar;
+
+        public enum Statuses
+        {
+            Wrong = 0,
+            Right = 1,
+            AlreadyOpened = 2
+        }
 
         public void Game()
         {
             int number = rnd.Next(tasks.Count);
             var task = tasks[number];
-            tasks.Remove(task);
             if (tasks.Count == 0)
             {
                 MessageBox.Show("Ви завершили гру");
+                Environment.Exit(0);
             }
+            tasks.Remove(task);
             label1.Text = task.GetQuestion();
-            Temp = task.GetAnswer();
-            Temp = Temp.ToLower();
+            Answer = task.GetAnswer();
+            Answer = Answer.ToLower();
 
             TempStar = "";
-            for (int i = 0; i < Temp.Length; i++)
+            for (int i = 0; i < Answer.Length; i++)
             {
                 TempStar = TempStar + "*";
             }
@@ -69,75 +78,132 @@ namespace ForRequest
 
 
         }
+
+        public void CheckSingleLetter(char input)
+        {
+            Statuses Status = Statuses.Wrong;
+            for (int i = 0; i < Answer.Length; i++)
+            {
+                if (Answer[i] == input && TempStar[i] == '*')
+                {
+                    TempStar = TempStar.Remove(i, 1).Insert(i, input.ToString());
+                    Status = Statuses.Right;
+                }
+                else if (Answer[i] == input && TempStar[i] == input)
+                {
+                    Status = Statuses.AlreadyOpened;
+                }
+            }
+            if (Status == Statuses.Wrong)
+            {
+                ShowNotification("Введена буква невірна", Color.Yellow);
+                Score = Score - 5;
+            }
+            if (Status == Statuses.Right)
+            {
+                ShowNotification("Введена буква вірна", Color.Green);
+                Score = Score + 5;
+                CheckWinCondition();
+            }
+            if (Status == Statuses.AlreadyOpened)
+            {
+                ShowNotification("Ця буква уже відкрита", Color.Yellow);
+            }
+        }
+        public void CheckFullWord(string input)
+        {
+            if (input == Answer && CheckStar == TempStar)
+            {
+                TempStar = Answer;
+                ShowNotification("Вітаю. Ви вгадали слово", Color.Green);
+                Score = Score + 100;
+                Game();
+            }
+            else if (input == Answer && CheckStar != TempStar)
+            {
+                ShowNotification("Слово вірне", Color.Green);
+                for (int i = 0; i < Answer.Length; i++)
+                {
+                    if (TempStar[i] == CheckStar[i])
+                    {
+                        Score = Score + 5;
+                    }
+                }
+                TempStar = Answer;
+                Game();
+            }
+            else if (input != Answer && input.Length == Answer.Length)
+            {
+                ShowNotification("Ви не вгадали слово", Color.Red);
+                Score = Score - 100;
+            }
+        }
+        public void CheckFewLetters(string input)
+        {
+            int counter = 0;
+            for (int i = 0; i < Answer.Length - input.Length + 1; i++)
+            {
+                if (Answer.Substring(i, input.Length) == input && TempStar.Substring(i, input.Length) == CheckStar.Substring(i, input.Length))
+                {
+                    TempStar = TempStar.Substring(0, i) + input + TempStar.Substring(i + input.Length);
+
+                    counter++;
+                }
+            }
+            if (counter > 0)
+            {
+                ShowNotification("Ви вгадали декілька букв", Color.Green);
+                Score = Score + input.Length * 5 + 5;
+            }
+            else
+            {
+                ShowNotification("Ви не вгадали декілька букв", Color.Yellow);
+                Score = Score + input.Length * -5 - 5;
+            }
+
+            CheckWinCondition();
+        }
+        public void CheckWinCondition()
+        {
+            if (TempStar == Answer)
+            {
+                ShowNotification("Вітаю. Ви вгадали слово", Color.Green);
+                Game();
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             string input = textBox1.Text;
             input = input.ToLower();
 
-            if (input.Length == 1)
+            if (input.Length == 1) // ДЛЯ ОДНОГО СИМВОЛА
             {
-                int counter = 0;
-                for (int i = 0; i < Temp.Length; i++)
-                {
-                    if (Temp[i] == Convert.ToChar(input) && TempStar[i] == '*')
-                    {
-                        TempStar = TempStar.Remove(i, 1).Insert(i, input.ToString());
-                        counter++;
-                    }
-                }
-                if (counter == 0)
-                {
-                    MessageBox.Show("Введена буква невірна");
-                    Score = Score - 5;
-                }
-                else
-                {
-                    MessageBox.Show("Введена буква вірна");
-                    Score = Score + 5;
-                    if (TempStar == Temp)
-                    {
-                        MessageBox.Show("Вітаю. Ви вгадали слово");
-                        Game();
-                    }
-                }
+                CheckSingleLetter(Convert.ToChar(input));
             }
-            else if (input.Length > 1)
+            else if (input.Length == Answer.Length) // ЦІЛЕ СЛОВО
             {
-                if (input == Temp && CheckStar == TempStar)
-                {
-                    TempStar = Temp;
-                    MessageBox.Show("Вітаю. Ви вгадали слово");
-                    Score = Score + 100;
-                    Game();
-                }
-                else if (input == Temp && CheckStar != TempStar)
-                {
-                    MessageBox.Show("Слово вірне");
-                    for (int i = 0; i < Temp.Length; i++)
-                    {
-                        if (TempStar[i] == CheckStar[i])
-                        {
-                            Score = Score + 5;
-                        }
-                    }
-                    TempStar = Temp;
-                    Game();
-                }
-                else
-                {
-                    MessageBox.Show("Ви не вгадали слово");
-                    Score = Score - 100;
-                }
+                CheckFullWord(input);
             }
-            else
+            else if (input.Length > 1) // ДЛЯ ДЕКІЛЬКОХ СИМВОЛІВ 
             {
-                MessageBox.Show("Введіть символ або слово");
+                CheckFewLetters(input);
+            }
+            else // ЯКЩО НІЧОГО НЕ ВВЕДЕНО
+            {
+                ShowNotification("Введіть символ або слово", Color.Yellow);
             }
 
             label2.Text = TempStar.ToUpper();
             textBox1.Clear();
             label2.Text = $"{TempStar[0].ToString().ToUpper()}{TempStar.Substring(1, TempStar.Length - 1)}";
             label3.Text = "Score: " + Convert.ToString(Score);
+        }
+
+        private void ShowNotification(string message, Color color)
+        {
+            label4.Text = message;
+            label4.BackColor = color;
         }
     }
 }
