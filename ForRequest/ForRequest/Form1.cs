@@ -31,7 +31,7 @@ namespace ForRequest
             AlreadyOpened = 2
         }
 
-        public void Game()
+        public void GetNewQuestion()
         {
             int number = rnd.Next(tasks.Count);
             var task = tasks[number];
@@ -74,7 +74,7 @@ namespace ForRequest
                 label1.Text = ex.Message;
             }
 
-            Game();
+            GetNewQuestion();
 
 
         }
@@ -118,7 +118,7 @@ namespace ForRequest
                 TempStar = Answer;
                 ShowNotification("Вітаю. Ви вгадали слово", Color.Green);
                 Score = Score + 100;
-                Game();
+                GetNewQuestion();
             }
             else if (input == Answer && CheckStar != TempStar)
             {
@@ -131,7 +131,7 @@ namespace ForRequest
                     }
                 }
                 TempStar = Answer;
-                Game();
+                GetNewQuestion();
             }
             else if (input != Answer && input.Length == Answer.Length)
             {
@@ -169,7 +169,7 @@ namespace ForRequest
             if (TempStar == Answer)
             {
                 ShowNotification("Вітаю. Ви вгадали слово", Color.Green);
-                Game();
+                GetNewQuestion();
             }
         }
         #endregion
