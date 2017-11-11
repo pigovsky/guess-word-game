@@ -2,32 +2,19 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tneu.fcit.softwareconstructing.guesstheword.controller.StartPageController">
    <children>
-      <RadioButton fx:id="onePlayer" layoutX="45.0" layoutY="147.0" mnemonicParsing="false" onAction="#getAmountOfPlayers" text="One Player" />
-      <RadioButton fx:id="twoPlayers" layoutX="45.0" layoutY="164.0" mnemonicParsing="false" onAction="#getAmountOfPlayers" text="Two Players" />
-      <RadioButton fx:id="threePlayers" layoutX="45.0" layoutY="181.0" mnemonicParsing="false" onAction="#getAmountOfPlayers" text="Three Players" />
-      <RadioButton fx:id="fourPlayers" layoutX="45.0" layoutY="198.0" mnemonicParsing="false" onAction="#getAmountOfPlayers" text="Four Players" />
-      <TextField fx:id="firstPlayerNameField" layoutX="402.0" layoutY="131.0" />
-      <TextField fx:id="secondPlayerNameField" layoutX="402.0" layoutY="157.0" />
-      <TextField fx:id="thirdPlayerNameField" layoutX="402.0" layoutY="182.0" />
-      <TextField fx:id="fourthPlayerNameField" layoutX="402.0" layoutY="207.0" />
       <Button layoutX="89.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleStart" text="Start Game" />
-      <Label layoutX="18.0" layoutY="126.0" text="Choose amount of Players:" />
-      <Label fx:id="onePlayerLabel" layoutX="339.0" layoutY="135.0" text="First Player: " />
-      <Label fx:id="twoPlayersLabel" layoutX="322.0" layoutY="161.0" text="Second Player: " />
-      <Label fx:id="threePlayersLabel" layoutX="328.0" layoutY="186.0" text="Third Player: " />
-      <Label fx:id="fourPlayersLabel" layoutX="322.0" layoutY="211.0" text="Fourth Player : " />
       <Label layoutX="126.0" layoutY="36.0" text="Guess The Word">
          <font>
             <Font name="System Bold" size="48.0" />
          </font>
       </Label>
+      <Button layoutX="175.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleAddPlayer" prefHeight="25.0" prefWidth="76.0" text="Add Player" />
+      <ListView fx:id="playerListView" layoutX="386.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

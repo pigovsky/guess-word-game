@@ -13,7 +13,7 @@ public class Main extends Application {
     private static final FXMLService fxmlService = new FXMLServiceImpl();
 
     @Override
-    public  void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException {
         primaryStage = stage;
         primaryStage.setTitle("Guess The Word");
 
@@ -21,11 +21,15 @@ public class Main extends Application {
     }
 
     public void showStartPage() throws IOException {
-        fxmlService.setFXML("/view/StartPage.fxml", primaryStage);
+        fxmlService.showPrimaryStage("/view/StartPage.fxml", primaryStage);
     }
 
     public static void showMainPage() throws IOException {
-        fxmlService.setFXML("/view/MainPage.fxml", primaryStage);
+        fxmlService.showPrimaryStage("/view/MainPage.fxml", primaryStage);
+    }
+
+    public static void showAddPlayerPage() throws IOException {
+        fxmlService.showDialogStage("/view/AddPlayerPage.fxml", primaryStage);
     }
 
     public static void main(String[] args) {
