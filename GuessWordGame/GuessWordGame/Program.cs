@@ -17,7 +17,7 @@ namespace GuessWordGame
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 			MainForm form = new MainForm();
-			MessageService service = new MessageService();
+            MessageService service = new MessageService();
 			GuessManager manager = new GuessManager();
 			
 			GuessPresenter presenter = new GuessPresenter(form,manager,service);

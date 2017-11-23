@@ -53,12 +53,13 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblScore});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 288);
+            this.statusStrip1.Location = new System.Drawing.Point(20, 276);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(650, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(609, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -100,11 +101,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 138);
+            this.label2.Location = new System.Drawing.Point(41, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Ваша вдача:";
+            this.label2.Text = "Ваша відповідь:";
             // 
             // lblPrompts
             // 
@@ -214,7 +215,7 @@
             this.btVerify.BackgroundImage = global::GuessWordGame.Properties.Resources.GreenTick;
             this.btVerify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btVerify.Location = new System.Drawing.Point(223, 221);
+            this.btVerify.Location = new System.Drawing.Point(222, 212);
             this.btVerify.Name = "btVerify";
             this.btVerify.Size = new System.Drawing.Size(63, 54);
             this.btVerify.TabIndex = 1;
@@ -225,8 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(650, 310);
+            this.ClientSize = new System.Drawing.Size(649, 318);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblPrompts);
@@ -237,10 +237,10 @@
             this.Controls.Add(this.btVerify);
             this.Controls.Add(this.statusStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.Resizable = false;
             this.Text = "Guess Word";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.statusStrip1.ResumeLayout(false);
