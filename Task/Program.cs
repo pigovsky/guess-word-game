@@ -9,6 +9,11 @@ namespace GuessWordGame
     {
         static void Main(string[] args)
         {
+            TaskProviderImpl value = new TaskProviderImpl();
+            value.QuestionFromFile();
+
+
+
         }
     }
 }

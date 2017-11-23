@@ -15,7 +15,7 @@ namespace GuessWordGame
             this.answer = answer;
         }
 
-        String question;
-        String answer;
+        public String question;
+        public String answer;
     }
 }

@@ -11,14 +11,28 @@ namespace GuessWordTest
     [TestClass]
     public class TaskProviderTest
     {
-        [TestMethod]
+       [TestMethod]
         public void TestGetReturnsStringValue()
         {
             var tp = new TaskProviderImpl();
 
+            tp.QuestionFromFile();
+
             var task = tp.Get();
 
             Assert.IsNotNull(task);
+        }
+
+        [TestMethod]
+        public void TestMethodCheckTwoTaskEqual()
+        {
+            var taskProviderImpl = new TaskProviderImpl();
+            taskProviderImpl.QuestionFromFile();
+
+            var firsttask = taskProviderImpl.Get();
+            var secondtask = taskProviderImpl.Get();
+
+            Assert.AreNotEqual(firsttask, secondtask);
         }
     }
 }

@@ -10,35 +10,105 @@ namespace GuessWordTest
     {
 
         [TestMethod]
-        public void TestMethodSorryAndGuessLetterCalled()
+
+        public void TestStartCalled()
+        {
+            var taskproviderMoq = new Mock<TaskProvider>();
+            var gameViewMock = new Mock<GameView>();
+
+            var task = new Task()
+            { question = "Capital of France", answer ="Paris"
+            };
+
+            taskproviderMoq.Setup(x => x.Get()).Returns(task);
+
+            var gameservice = new GameServiceImp(gameViewMock.Object, taskproviderMoq.Object);
+
+            gameservice.start();
+
+            gameViewMock.Verify(x => x.showTask(task));
+            gameViewMock.Verify(x => x.showCurrentGuess("*****"));
+        }
+       
+        [TestMethod]
+        public void TestGuessLetterShowSorry()
         {
             var taskProviderMoq = new Mock<TaskProvider>();
             var gameViewMock = new Mock<GameView>();
 
-            gameViewMock.Setup(x => x.showSorry("Sorry, friend"));
+            var task = new Task()
+            {
+                question = "Capital of France?",
+                answer = "Paris"
+            };
 
             var gameServiceImpl = new GameServiceImp(gameViewMock.Object, taskProviderMoq.Object);
-            gameServiceImpl.guessLetter("letter");
 
-            gameViewMock.Verify(x => x.showSorry("Sorry, friend"), Times.Once());
+            gameServiceImpl.guessLetter("O");
+
+            gameViewMock.Verify(x => x.showSorry("So sorry"), Times.Once());
         }
 
         [TestMethod]
-        public void TestMethodTaskAndGuessWordCalled()
+        public void TestGuessLetterShowCongrad()
         {
             var taskProviderMoq = new Mock<TaskProvider>();
             var gameViewMock = new Mock<GameView>();
 
-            gameViewMock.Setup(x => x.showTask(new Task()));
+            var task = new Task()
+            {
+                question = "Capital of France?",
+                answer = "Paris"
+            };
 
             var gameServiceImpl = new GameServiceImp(gameViewMock.Object, taskProviderMoq.Object);
-            gameServiceImpl.guessWord("letter");
 
-            gameViewMock.Verify(x => x.showTask(new Task()), Times.Once());
+            gameServiceImpl.guessLetter("P");
+
+            gameViewMock.Verify(x => x.showCongradulations("wiii"), Times.Once());
+        }
+        
+
+        [TestMethod]
+        public void TestGuessWordShowSorry()
+        {
+            var taskProviderMoq = new Mock<TaskProvider>();
+            var gameViewMock = new Mock<GameView>();
+
+            var task = new Task()
+            {
+                question = "Capital of France?",
+                answer = "Paris"
+            };
+      
+
+            var gameServiceImpl = new GameServiceImp(gameViewMock.Object, taskProviderMoq.Object);
+            gameServiceImpl.guessWord("word");
+
+            gameViewMock.Verify(x => x.showSorry("Sorry"), Times.Once());
         }
 
         [TestMethod]
-        public void TestMethodCurrentGuessAndStartCalled()
+        public void TestGuessWordShowCongrad()
+        {
+            var taskProviderMoq = new Mock<TaskProvider>();
+            var gameViewMock = new Mock<GameView>();
+
+            var task = new Task()
+            {
+                question = "Capital of France?",
+                answer = "Paris"
+            };
+
+
+            var gameServiceImpl = new GameServiceImp(gameViewMock.Object, taskProviderMoq.Object);
+            gameServiceImpl.guessWord("Paris");
+
+            gameViewMock.Verify(x => x.showCongradulations("wiii"), Times.Once());
+        }
+
+      /*  [TestMethod]
+        public void TestMethodCurrentGuess()
         {
             var taskProviderMoq = new Mock<TaskProvider>();
             var gameViewMock = new Mock<GameView>();
@@ -52,20 +122,19 @@ namespace GuessWordTest
         }
 
         [TestMethod]
-        public void TestMethodCongratulationsAndStartCalled()
+        public void TestMethodCongratulations()
         {
             var taskProviderMoq = new Mock<TaskProvider>();
             var gameViewMock = new Mock<GameView>();
 
-            gameViewMock.Setup(x => x.showCongradulations("You lucky!"));
-
+          
             var gameServiceImpl = new GameServiceImp(gameViewMock.Object, taskProviderMoq.Object);
             gameServiceImpl.start();
 
             gameViewMock.Verify(x => x.showCongradulations("You lucky!"), Times.Once());
         }
-
+        
        
-
+        */
     }
 }
