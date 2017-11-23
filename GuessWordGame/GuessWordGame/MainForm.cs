@@ -35,7 +35,6 @@ namespace GuessWordGame
         event EventHandler VerifyClick;
         event EventHandler HalfWordClick;
         event EventHandler FirstLastLetterClick;
-        event EventHandler MainFormLoad;
         event EventHandler Auth;
     }
     public partial class MainForm : MetroForm, IMainForm
@@ -192,7 +191,6 @@ namespace GuessWordGame
         public event EventHandler FirstLastLetterClick;
         public event EventHandler HalfWordClick;
         public event EventHandler VerifyClick;
-        public event EventHandler MainFormLoad;
         public event EventHandler Auth;
 
         public void setScore(int score)
@@ -229,7 +227,6 @@ namespace GuessWordGame
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (MainFormLoad != null) MainFormLoad(this, EventArgs.Empty);
             groupBox1.Visible = false;
             groupBox2.Visible = false;
             btVerify.Visible = false;

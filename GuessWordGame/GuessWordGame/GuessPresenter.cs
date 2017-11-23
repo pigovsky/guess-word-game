@@ -19,16 +19,9 @@ namespace GuessWordGame
             _view.VerifyClick += _view_VerifyClick;
             _view.HalfWordClick += _view_HalfWordClick;
             _view.FirstLastLetterClick += _view_FirstLastLetterClick;
-            _view.MainFormLoad += _view_MainFormLoad;
             _view.Auth += _view_Auth;
         }
 
-        private void _view_MainFormLoad(object sender, EventArgs e)
-        {
-            //_manager.FirstEntrance();
-            //_view.setScore(_manager.CurrentScore());
-            //_view.Question = _manager.getTask();
-        }
 
         private void _view_FirstLastLetterClick(object sender, EventArgs e)
         {
