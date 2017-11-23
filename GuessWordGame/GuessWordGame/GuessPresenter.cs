@@ -20,13 +20,14 @@ namespace GuessWordGame
             _view.HalfWordClick += _view_HalfWordClick;
             _view.FirstLastLetterClick += _view_FirstLastLetterClick;
             _view.MainFormLoad += _view_MainFormLoad;
+            _view.Auth += _view_Auth;
         }
 
         private void _view_MainFormLoad(object sender, EventArgs e)
         {
-            _manager.FirstEntrance();
-            _view.setScore(_manager.CurrentScore());
-            _view.Question = _manager.getTask();
+            //_manager.FirstEntrance();
+            //_view.setScore(_manager.CurrentScore());
+            //_view.Question = _manager.getTask();
         }
 
         private void _view_FirstLastLetterClick(object sender, EventArgs e)
@@ -62,6 +63,30 @@ namespace GuessWordGame
             catch (Exception ex)
             {
                 _messageService.showError(ex.Message);
+            }
+        }
+        private void _view_Auth(object sender, EventArgs e)
+        {
+            if (_manager.Auth(_view.auth.Text) != false)
+            {
+                _view.yourQ.Visible = true;
+                _view.yourA.Visible = true;
+                _view.yourAnswer.Visible = true;
+                _view.LQuestion.Visible = true;
+                _view.name.Visible = false;
+                _view.auth.Visible = false;
+                _view.welcome.Visible = false;
+                _view.group1.Visible = true;
+                _view.group2.Visible = true;
+                _view.verify.Visible = true;
+                _view.scoreLabel.Visible = true;
+                _manager.FirstEntrance();
+                _view.setScore(_manager.CurrentScore());
+                _view.Question = _manager.getTask();
+            }
+            else
+            {
+                _messageService.showError("Неправильне ім'я користувача");
             }
         }
 

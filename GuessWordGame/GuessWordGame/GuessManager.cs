@@ -22,6 +22,7 @@ namespace GuessWordGame
         string HalfOfWord();
         string LastAndFirst();
         string getTask();
+        bool Auth(string name);
 
 
     }
@@ -34,12 +35,10 @@ namespace GuessWordGame
         private StringBuilder letters = new StringBuilder();
         public void FirstEntrance()
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\");
-            if (scoreControler == null)
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\",true);
+            if (scoreControler.GetValue("Score") == null)
             {
-                scoreControler = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\GuessWord\\");
                 scoreControler.SetValue("Score", "100");
-                scoreControler.Close();
             }
             scoreControler.Close();
         }
@@ -155,6 +154,29 @@ namespace GuessWordGame
             }
             return result;
         }
-        
+        public bool Auth(string name)
+        {
+            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
+            if (scoreControler == null)
+            {
+                scoreControler = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\GuessWord\\");
+                scoreControler.SetValue("name", name);
+                scoreControler.Close();
+                return true;
+
+            }
+            else
+            {
+                string Name = scoreControler.GetValue("name").ToString();
+                if (Name == name)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
+
     }
 }

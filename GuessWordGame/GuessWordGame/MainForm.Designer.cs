@@ -46,6 +46,9 @@
             this.btFirstLastLetters = new System.Windows.Forms.Button();
             this.btHalfWord = new System.Windows.Forms.Button();
             this.btVerify = new System.Windows.Forms.Button();
+            this.tboxName = new System.Windows.Forms.TextBox();
+            this.btAuth = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -222,11 +225,41 @@
             this.btVerify.UseVisualStyleBackColor = false;
             this.btVerify.Click += new System.EventHandler(this.btVerify_Click);
             // 
+            // tboxName
+            // 
+            this.tboxName.Location = new System.Drawing.Point(222, 157);
+            this.tboxName.Name = "tboxName";
+            this.tboxName.Size = new System.Drawing.Size(202, 20);
+            this.tboxName.TabIndex = 15;
+            // 
+            // btAuth
+            // 
+            this.btAuth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAuth.Location = new System.Drawing.Point(280, 184);
+            this.btAuth.Name = "btAuth";
+            this.btAuth.Size = new System.Drawing.Size(86, 32);
+            this.btAuth.TabIndex = 16;
+            this.btAuth.Text = "Увійти";
+            this.btAuth.UseVisualStyleBackColor = true;
+            this.btAuth.Click += new System.EventHandler(this.btAuth_Click);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(162, 160);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(58, 13);
+            this.lblName.TabIndex = 17;
+            this.lblName.Text = "Ваше ім\'я:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 318);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.btAuth);
+            this.Controls.Add(this.tboxName);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblPrompts);
@@ -273,6 +306,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tboxName;
+        private System.Windows.Forms.Button btAuth;
+        private System.Windows.Forms.Label lblName;
     }
 }
 
