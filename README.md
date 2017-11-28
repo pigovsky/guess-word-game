@@ -58,6 +58,8 @@
 
 Якщо ви розробляєте десктопний додаток, то зверніть увагу як ваш додаток виконує пошук файла із завданнями відносно поточної робочої директорії.
 
+![Guess word game UML](https://raw.githubusercontent.com/pigovsky/guess-word-game/master/dia/kpz1.png)
+
 ## П'яте завдання 
 
 Створіть ще одну імплементацію інтерфейсу `TaskProvider`, яка зчитує запитання і відповіді за допомогою get запиту на [REST ресурс](https://raw.githubusercontent.com/pigovsky/guess-word-game/master/tasks/all.json). 
