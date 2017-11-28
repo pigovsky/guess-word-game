@@ -76,6 +76,8 @@
 
 Використайте розроблені компоненти у програмі.
 
+![UsersDao uml](https://raw.githubusercontent.com/pigovsky/guess-word-game/master/dia/UsersDao.png)
+
 ## Сьоме завдання
 
 Створіть імплементацію `UsersDaoSQLiteImpl` компоненту `UsersDao`, яка зберігає користувачів у базі даних SQLite.
