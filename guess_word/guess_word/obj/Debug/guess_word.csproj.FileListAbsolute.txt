@@ -1,0 +1,13 @@
+D:\Projects\task\guess_word\guess_word\bin\Debug\guess_word.exe.config
+D:\Projects\task\guess_word\guess_word\bin\Debug\guess_word.exe
+D:\Projects\task\guess_word\guess_word\bin\Debug\guess_word.pdb
+D:\Projects\task\guess_word\guess_word\obj\Debug\guess_word.csprojResolveAssemblyReference.cache
+D:\Projects\task\guess_word\guess_word\obj\Debug\guess_word.csproj.CoreCompileInputs.cache
+D:\Projects\task\guess_word\guess_word\obj\Debug\guess_word.exe
+D:\Projects\task\guess_word\guess_word\obj\Debug\guess_word.pdb
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\bin\Debug\guess_word.exe.config
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\bin\Debug\guess_word.exe
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\bin\Debug\guess_word.pdb
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\obj\Debug\guess_word.csprojResolveAssemblyReference.cache
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\obj\Debug\guess_word.exe
+D:\Навчання\3 курс\Проектування ПЕЗЕ\task\guess_word\guess_word\obj\Debug\guess_word.pdb
