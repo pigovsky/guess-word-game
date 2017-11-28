@@ -5,6 +5,5 @@ class Task {
 	constructor(quest: string, ansv: string) { 
 		this.question = quest;
 		this.ansver = ansv;
-		}
-
+	}
 }
