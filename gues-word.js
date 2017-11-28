@@ -53,7 +53,7 @@
 	/*-----------------!Methods-----------------*/
 
 
-    /*--------------Authorisation--------------*/
+    /*--------------Authorization--------------*/
 
     function validate(users, elem1, elem2, elem3, elem4, field1, field2, error_text) {
         for (var i = 0; i < users.length; i++) {
@@ -70,9 +70,7 @@
         element.classList.remove('visible');
     }
 
-
-
-    /*--------------Authorisation--------------*/
+    /*--------------!Authorization--------------*/
 
 
 
