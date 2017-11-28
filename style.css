@@ -13,6 +13,11 @@ body{
 	background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); 
 }
 
+
+.game-field, #sign-up-form, #sign-in-form, #start-window {
+	display: none;
+}
+
 .wrapper{
 	height: 100%;
 	width: 800px;
@@ -40,8 +45,8 @@ body{
 	text-transform: uppercase;
 }
 
-#inp{
-	width: 300px;
+.input{
+	width: 250px;
 	border-radius: 15px;
 	outline: none;
 	padding: 10px 15px;
@@ -59,7 +64,7 @@ body{
 	margin-bottom: 50px;
 }
 
-#btn{
+.button{
 	width: 250px;
 	height: 50px;
 	border-radius: 20px;
@@ -71,8 +76,16 @@ body{
 	transition: .2s;	
 }
 
-#btn:hover{
+.button:hover{
 	border:3px solid #D9FF2E;
 	background-color: transparent;
 	color:#fff;
+}
+
+.visible {
+	display: block !important;
+}
+
+.hidden { 
+	display: none ;
 }

@@ -53,6 +53,28 @@
 	/*-----------------!Methods-----------------*/
 
 
+    /*--------------Authorisation--------------*/
+
+    function validate(users, elem1, elem2, elem3, elem4, field1, field2, error_text) {
+        for (var i = 0; i < users.length; i++) {
+            if(users[i].username === field1.value && users[i].password === field2.value) {
+                elem1.classList.remove('visible');
+                elem2.classList.remove('visible');
+                elem3.classList.remove('visible');
+                elem4.classList.add('visible');
+            } else { }
+        }
+    }
+
+    function goBack(element) {
+        element.classList.remove('visible');
+    }
+
+
+
+    /*--------------Authorisation--------------*/
+
+
 
 /*-----------------Actions-----------------*/
 showQuestion();

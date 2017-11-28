@@ -7,9 +7,20 @@
 </head>
 <body>
 	<div class="wrapper">
-		<h2 id="quest"></h2>
-		<input type="text" id="inp" placeholder="Відповідь">
-		<button id="btn">ok</button>
+		<div class="start-window visible">
+			<button id="show-sign-in" class="button">Sign-in</button>
+		</div>
+		<div id="sign-in-form">
+			<input type="text" class="input username">
+			<input type="password" class="input pass">
+			<button class="sing-in-btn button">OK</button>
+			<button class="back button">back</button>
+		</div>
+		<div class="game-field">
+			<h2 id="quest"></h2>
+			<input type="text" id="inp" placeholder="Відповідь" class="input">
+			<button id="btn" class="button">ok</button>
+		</div>
 	</div>
 	<script src="script.js"></script>
 	<script src="gues-word.js"></script>
