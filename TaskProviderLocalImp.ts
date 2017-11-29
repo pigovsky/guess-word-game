@@ -1,15 +1,11 @@
 import {TaskProvider} from "./TaskProvider";
-import {Task} from "./Task";
-import * as data from 'tasks/all.json';
+//import {Task} from "./Task";
+import * as data from '../tasks/all.json';
 
+class TaskProviderLocalImpl implements TaskProvider{
 
-	const word = (<any>data).name;
-	console.log(word);
+	Get(){
 
-	class TaskProviderLocalImpl implements TaskProvider{
-
-		Get(){
-
-		}
 	}
+}
 

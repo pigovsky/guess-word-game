@@ -1,10 +1,28 @@
+import data from '../tasks/all.json';
 
-export class Task {
+interface TaskData {
 	question: string;
-	ansver: string;
+	answer: string;
+}
 
-	constructor(quest: string, ansv: string) { 
-		this.question = quest;
-		this.ansver = ansv;
+class Task implements TaskData {
+	question: string;
+	answer: string;
+
+	constructor(data: TaskData) {
+		this.question = data.question;
+		this.answer = data.answer;
 	}
 }
+
+function isTaskData(arg: any): arg is TaskData {
+	return arg && !!arg.question && !!arg.answer;
+}
+
+const tasks: Task[] = [];
+
+for (const record of data) {
+	if (!isTaskData(record)) { continue; }
+	tasks.push(new Task(record));
+}
+console.log(tasks);
