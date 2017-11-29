@@ -1,4 +1,4 @@
 node_modules/
 git-via-proxy.bat
-package.json
-package-lock.json
+/package.json
+/package-lock.json
