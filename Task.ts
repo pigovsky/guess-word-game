@@ -1,4 +1,5 @@
-class Task {
+
+export class Task {
 	question: string;
 	ansver: string;
 

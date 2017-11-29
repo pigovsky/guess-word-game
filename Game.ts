@@ -1,1 +1,7 @@
-console.log("111");
+
+	import * as data from 'tasks/all.json';
+
+
+	const word = (<any>data).name;
+	console.log(word);
+

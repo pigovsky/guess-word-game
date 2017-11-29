@@ -1,3 +1,7 @@
-interface TaskProvider{
-	
-}
+
+
+	export interface TaskProvider{
+		// TaskProviderLocalImpl Get();
+	}
+
+
