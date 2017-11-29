@@ -1,7 +1,7 @@
 
-	import * as data from 'tasks/all.json';
+ import * as data from '../tasks/all.json';
 
 
-	const word = (<any>data).name;
-	console.log(word);
+ const word = (<any>data).name;
+ console.log(word);
 
