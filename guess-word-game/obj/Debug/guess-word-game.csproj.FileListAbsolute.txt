@@ -1,1 +1,7 @@
 C:\Users\irysa\Documents\ФКІТ\2 КУРС\2 семестр\Операційні системи\guess-word-game\guess-word-game\bin\Debug\guess-word-game.exe.config
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\bin\Debug\guess-word-game.exe.config
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\bin\Debug\guess-word-game.exe
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\bin\Debug\guess-word-game.pdb
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\obj\Debug\guess-word-game.csprojResolveAssemblyReference.cache
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\obj\Debug\guess-word-game.exe
+C:\Users\irysa\Documents\ФКІТ\3 КУРС\1 семестр\Конструювання ПЗ\guess-word-game\guess-word-game\obj\Debug\guess-word-game.pdb
