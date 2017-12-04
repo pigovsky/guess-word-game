@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "guess-word-game", "guess-word-game\guess-word-game.csproj", "{9F49C925-6513-444E-ABEE-2A82A9291078}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{3C48DD16-F856-49E5-B87E-021C959A8C00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F49C925-6513-444E-ABEE-2A82A9291078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F49C925-6513-444E-ABEE-2A82A9291078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F49C925-6513-444E-ABEE-2A82A9291078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F49C925-6513-444E-ABEE-2A82A9291078}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C48DD16-F856-49E5-B87E-021C959A8C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C48DD16-F856-49E5-B87E-021C959A8C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C48DD16-F856-49E5-B87E-021C959A8C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C48DD16-F856-49E5-B87E-021C959A8C00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
