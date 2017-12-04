@@ -7,13 +7,13 @@ using Microsoft.Win32;
 using System.IO;
 using Newtonsoft.Json;
 
+
 namespace GuessWordGame
 {
     public interface IGuessManager
     {
         bool GuessWord(string word);
         bool GuessLetter(char letter);
-        void FirstEntrance();
         int CurrentScore();
         void RaiseScorebyWord();
         void ReduceScorebyWord();
@@ -22,37 +22,37 @@ namespace GuessWordGame
         string HalfOfWord();
         string LastAndFirst();
         string getTask();
-        bool Auth(string name);
+        bool Auth(string Login,string Password);
+        bool SignUp(string Surname, string Name,
+                string Login, string Password, DateTime DateOfBirth,
+                Sex sex, string EMail);
+        string getName();
+        User GetUser();
+        bool Save(int id,string Surname, string Name,
+                string Login, string Password, DateTime DateOfBirth,
+                Sex sex, string EMail);
 
 
     }
     public class GuessManager : IGuessManager
     {
+        User myAccount;
         private RegistryKey scoreControler = Registry.CurrentUser;
-        private int number_of_item = -1;
         private List<Task> items;
         private Task currentTask;
         private StringBuilder letters = new StringBuilder();
-        public void FirstEntrance()
-        {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\",true);
-            if (scoreControler.GetValue("Score") == null)
-            {
-                scoreControler.SetValue("Score", "100");
-            }
-            scoreControler.Close();
-        }
+        UsersDaoSQLite UDSQL = new UsersDaoSQLite();
         public int CurrentScore()
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\");
-            scoreControler.OpenSubKey(@"SOFTWARE\\GuessWord\\");
-            int score =  Convert.ToInt32(scoreControler.GetValue("Score"));
-            scoreControler.Close();
-            return score;
+            return myAccount.score;
+        }
+        public string getName()
+        {
+            return myAccount.name;
         }
         public string getTask()
         {
-            if (number_of_item == -1)
+            if (items == null)
             {
                 string path = "task.json";
                 using (StreamReader r = new StreamReader(path))
@@ -61,16 +61,17 @@ namespace GuessWordGame
                     items = JsonConvert.DeserializeObject<List<Task>>(json2);
                 }
             }
-            number_of_item++;
-            if (number_of_item > items.Count - 1)
-                return null;
+            if(myAccount.currentQuestion == 11)
+            {
+                myAccount.currentQuestion = 1;
+                myAccount = UDSQL.update(myAccount);
+                return "WIN";
+            }
             else
             {
-                currentTask = items[number_of_item];
-                letters.Clear();
-                for (int i = 0; i < currentTask.Answer.Length; i++)
-                    letters.Append("*");
-                return items[number_of_item].Question;
+                currentTask = items[(myAccount.currentQuestion)-1];
+                myAccount = UDSQL.update(myAccount);
+                return currentTask.Question;
             }
         }
         public bool GuessWord(string word)
@@ -91,27 +92,19 @@ namespace GuessWordGame
         }
         public void RaiseScorebyWord()
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\",true);
-            int score = Convert.ToInt32(scoreControler.GetValue("Score"));
-            score = score + 20;
-            scoreControler.SetValue("Score",score.ToString());
-            scoreControler.Close();
+            myAccount.score += 20;
+            myAccount.currentQuestion += 1;
+            myAccount = UDSQL.update(myAccount);
         }
         public void ReduceScorebyWord()
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
-            int score = Convert.ToInt32(scoreControler.GetValue("Score"));
-            score = score - 10;
-            scoreControler.SetValue("Score", score.ToString());
-            scoreControler.Close();
+            myAccount.score -= 10;
+            myAccount = UDSQL.update(myAccount);
         }
         public void ReduceScorebyLetter()
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
-            int score = Convert.ToInt32(scoreControler.GetValue("Score"));
-            score = score - 1;
-            scoreControler.SetValue("Score", score.ToString());
-            scoreControler.Close();
+            myAccount.score -= 1;
+            myAccount = UDSQL.update(myAccount);
         }
         public string GetWordbyLetter(char letter)
         {
@@ -154,29 +147,63 @@ namespace GuessWordGame
             }
             return result;
         }
-        public bool Auth(string name)
+        public bool Auth(string Login, string Password)
         {
-            scoreControler = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\\GuessWord\\", true);
-            if (scoreControler == null)
-            {
-                scoreControler = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\\GuessWord\\");
-                scoreControler.SetValue("name", name);
-                scoreControler.Close();
+            myAccount = UDSQL.findUser(Login, Password);
+            if (myAccount != null)
                 return true;
-
+            else
+                return false;
+        }
+        public bool SignUp(string Surname, string Name,
+                string Login, string Password, DateTime DateOfBirth,
+                Sex sex, string EMail)
+        {
+            if(UDSQL.findUser(Login)== null)
+            {
+                User newUser = new User();
+                newUser.surname = Surname;
+                newUser.name = Name;
+                newUser.login = Login;
+                newUser.passwordHash = Password;
+                newUser.dateOfBirth = DateOfBirth;
+                newUser.sex = sex;
+                newUser.email = EMail;
+                UDSQL.add(newUser);
+                return true;
             }
             else
             {
-                string Name = scoreControler.GetValue("name").ToString();
-                if (Name == name)
-                {
-                    return true;
-                }
-                else
-                    return false;
+                return false;
             }
         }
 
+        public User GetUser()
+        {
+            return myAccount;
+        }
 
+        public bool Save(int id,string Surname, string Name,
+                string Login, string Password, DateTime DateOfBirth,
+                Sex sex, string EMail)
+        {
+            if (myAccount.passwordHash == Password)
+            {
+                User newUser = new User();
+                newUser.surname = Surname;
+                newUser.name = Name;
+                newUser.login = Login;
+                newUser.passwordHash = Password;
+                newUser.dateOfBirth = DateOfBirth;
+                newUser.sex = sex;
+                newUser.email = EMail;
+                newUser.id = id;
+                newUser.currentQuestion = myAccount.currentQuestion;
+                newUser.score = myAccount.score;
+                myAccount =  UDSQL.update(newUser);
+                return true;
+            }
+            else return false;
+        }
     }
 }

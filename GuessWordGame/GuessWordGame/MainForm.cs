@@ -14,17 +14,6 @@ namespace GuessWordGame
 {
     public interface IMainForm
     {
-        Label yourQ { get; }
-        Label yourA { get; }
-        TextBox yourAnswer { get; }
-        Label LQuestion { get; }
-        Label name { get; }
-        TextBox auth {get;}
-        Button welcome { get; }
-        GroupBox group1 { get; }
-        GroupBox group2 { get; }
-        Button verify { get; }
-        StatusStrip scoreLabel { get; }
         string InputWord { get; set; }
         string HalfWord { set; }
         string Letters { set; }
@@ -32,10 +21,12 @@ namespace GuessWordGame
         string FirstLastLetter { set; }
         void setScore(int score);
         int typeVerify { get; }
+        void Vision();
         event EventHandler VerifyClick;
         event EventHandler HalfWordClick;
         event EventHandler FirstLastLetterClick;
-        event EventHandler Auth;
+        event EventHandler InformationClick;
+        void SetWelcome(string name);
     }
     public partial class MainForm : MetroForm, IMainForm
     {
@@ -43,7 +34,10 @@ namespace GuessWordGame
         {
             InitializeComponent();
         }
-
+        public void SetWelcome(string name)
+        {
+            lblName.Text = "Вітаємо "+name;
+        }
         public string FirstLastLetter
         {
             set
@@ -100,98 +94,15 @@ namespace GuessWordGame
             }
         }
 
-        public Label name
-        {
-            get
-            {
-                return lblName;
-            }
-        }
-
-        public TextBox auth
-        {
-            get
-            {
-                return tboxName;
-            }
-        }
-
-        public Button welcome
-        {
-            get
-            {
-                return btAuth;
-            }
-        }
-
-        public GroupBox group1
-        {
-            get
-            {
-                return groupBox1;
-            }
-        }
-
-        public GroupBox group2
-        {
-            get
-            {
-                return groupBox2;
-            }
-        }
-
-        public Button verify
-        {
-            get
-            {
-                return btVerify;
-            }
-        }
-
-        public StatusStrip scoreLabel
-        {
-            get
-            {
-                return statusStrip1;
-            }
-        }
-
-        public Label yourQ
-        {
-            get
-            {
-                return lblQuestion;
-            }
-        }
-
-        public Label yourA
-        {
-            get
-            {
-                return label2;
-            }
-        }
-
-        public TextBox yourAnswer
-        {
-            get
-            {
-                return tboxGuessWord;
-            }
-        }
-
-        public Label LQuestion
-        {
-            get
-            {
-                return label1;
-            }
-        }
 
         public event EventHandler FirstLastLetterClick;
         public event EventHandler HalfWordClick;
         public event EventHandler VerifyClick;
-        public event EventHandler Auth;
+        public event EventHandler InformationClick;
+        public void Vision()
+        {
+            this.Show();
+        }
 
         public void setScore(int score)
         {
@@ -200,17 +111,17 @@ namespace GuessWordGame
 
         private void btVerify_Click(object sender, EventArgs e)
         {
-            if (VerifyClick != null) VerifyClick(this, EventArgs.Empty);
+            VerifyClick?.Invoke(this, EventArgs.Empty);
         }
 
         private void btHalfWord_Click(object sender, EventArgs e)
         {
-            if (HalfWordClick != null) HalfWordClick(this, EventArgs.Empty);
+            HalfWordClick?.Invoke(this, EventArgs.Empty);
         }
 
         private void btFirstLastLetters_Click(object sender, EventArgs e)
         {
-            if (FirstLastLetterClick != null) FirstLastLetterClick(this, EventArgs.Empty);
+            FirstLastLetterClick?.Invoke(this, EventArgs.Empty);
         }
 
         private void rdGuessWord_CheckedChanged(object sender, EventArgs e)
@@ -225,21 +136,14 @@ namespace GuessWordGame
             tboxGuessWord.MaxLength = 1;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            groupBox1.Visible = false;
-            groupBox2.Visible = false;
-            btVerify.Visible = false;
-            statusStrip1.Visible = false;
-            label1.Visible = false;
-            label2.Visible = false;
-            tboxGuessWord.Visible = false;
-            lblQuestion.Visible = false;
+            Application.Exit();
         }
 
-        private void btAuth_Click(object sender, EventArgs e)
+        private void metroButton1_Click(object sender, EventArgs e)
         {
-            Auth(this, EventArgs.Empty);
+            InformationClick(this,EventArgs.Empty);
         }
     }
 }

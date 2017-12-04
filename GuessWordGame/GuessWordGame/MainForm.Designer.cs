@@ -46,9 +46,8 @@
             this.btFirstLastLetters = new System.Windows.Forms.Button();
             this.btHalfWord = new System.Windows.Forms.Button();
             this.btVerify = new System.Windows.Forms.Button();
-            this.tboxName = new System.Windows.Forms.TextBox();
-            this.btAuth = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblName = new MetroFramework.Controls.MetroLabel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(162, 46);
+            this.label1.Location = new System.Drawing.Point(164, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 2;
@@ -89,7 +88,7 @@
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(117, 70);
+            this.lblQuestion.Location = new System.Drawing.Point(119, 95);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(0, 13);
             this.lblQuestion.TabIndex = 3;
@@ -218,48 +217,37 @@
             this.btVerify.BackgroundImage = global::GuessWordGame.Properties.Resources.GreenTick;
             this.btVerify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btVerify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btVerify.Location = new System.Drawing.Point(222, 212);
+            this.btVerify.Location = new System.Drawing.Point(195, 202);
             this.btVerify.Name = "btVerify";
             this.btVerify.Size = new System.Drawing.Size(63, 54);
             this.btVerify.TabIndex = 1;
             this.btVerify.UseVisualStyleBackColor = false;
             this.btVerify.Click += new System.EventHandler(this.btVerify_Click);
             // 
-            // tboxName
-            // 
-            this.tboxName.Location = new System.Drawing.Point(222, 157);
-            this.tboxName.Name = "tboxName";
-            this.tboxName.Size = new System.Drawing.Size(202, 20);
-            this.tboxName.TabIndex = 15;
-            // 
-            // btAuth
-            // 
-            this.btAuth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAuth.Location = new System.Drawing.Point(280, 184);
-            this.btAuth.Name = "btAuth";
-            this.btAuth.Size = new System.Drawing.Size(86, 32);
-            this.btAuth.TabIndex = 16;
-            this.btAuth.Text = "Увійти";
-            this.btAuth.UseVisualStyleBackColor = true;
-            this.btAuth.Click += new System.EventHandler(this.btAuth_Click);
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(162, 160);
+            this.lblName.Location = new System.Drawing.Point(186, 29);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 13);
-            this.lblName.TabIndex = 17;
-            this.lblName.Text = "Ваше ім\'я:";
+            this.lblName.Size = new System.Drawing.Size(0, 0);
+            this.lblName.TabIndex = 15;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(435, 276);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(146, 23);
+            this.metroButton1.TabIndex = 16;
+            this.metroButton1.Text = "Особиста інформація";
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 318);
+            this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.btAuth);
-            this.Controls.Add(this.tboxName);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblPrompts);
@@ -275,7 +263,7 @@
             this.Name = "MainForm";
             this.Resizable = false;
             this.Text = "Guess Word";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -306,9 +294,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tboxName;
-        private System.Windows.Forms.Button btAuth;
-        private System.Windows.Forms.Label lblName;
+        private MetroFramework.Controls.MetroLabel lblName;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 

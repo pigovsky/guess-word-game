@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GuessWordGame
 {
@@ -16,12 +17,14 @@ namespace GuessWordGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			MainForm form = new MainForm();
+            MainForm form = new MainForm();
             MessageService service = new MessageService();
-			GuessManager manager = new GuessManager();
-			
-			GuessPresenter presenter = new GuessPresenter(form,manager,service);
-            Application.Run(form);
+            GuessManager manager = new GuessManager();
+            LoginForm login = new LoginForm();
+            RegistrationForm signUp = new RegistrationForm();
+            InformationForm info = new InformationForm();
+            GuessPresenter presenter = new GuessPresenter(info,signUp,login, form, manager, service);
+            Application.Run(login);
         }
     }
 }
