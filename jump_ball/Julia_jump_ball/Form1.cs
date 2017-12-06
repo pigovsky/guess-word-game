@@ -27,7 +27,7 @@ namespace Julia_jump_ball
         private int BallVx, BallVy; // speed.
 
         // random value
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             // Pick a random start position and velocity.
             
