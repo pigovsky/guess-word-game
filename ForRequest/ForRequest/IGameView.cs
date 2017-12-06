@@ -14,7 +14,6 @@ namespace ForRequest
         void ShowQuestion(Task task);
         void ShowAnswer(string TempStar);
         void ShowNotification(string message, Color color);
-        void ShowScore(int Score);
-        
+        void ShowScore(int Score);       
     }
 }

@@ -7,13 +7,16 @@ using System.Drawing;
 
 namespace ForRequest
 {
+    delegate void Message();
+
     class GameLogic
     {
+        QuestionProvider questionProvider = new QuestionProvider();
+
         string TempStar;
         string CheckStar;
         string Answer;
         int Score = 0;
-
         IGameView gameView;
 
         public GameLogic(IGameView gameView)
@@ -22,19 +25,16 @@ namespace ForRequest
         }
 
         public void Start()
-        {
-            QuestionProvider questionProvider = new QuestionProvider();
-
-            
+        {   
             var task = questionProvider.Question();
+            Message message;
+            message = new Message(gameView.ShowGameOver);
 
             if (task == null)
             {
-                gameView.ShowGameOver();
+                message();
                 Environment.Exit(0);
             }
-
-
             gameView.ShowQuestion(task);
             Answer = task.GetAnswer();
             Answer = Answer.ToLower();
@@ -47,9 +47,9 @@ namespace ForRequest
             gameView.ShowAnswer(TempStar);
             CheckStar = TempStar;
         }
+
         public void CheckAnswer(string input)
-        {
-            
+        { 
             input = input.ToLower();
 
             if (input.Length == 1) // ДЛЯ ОДНОГО СИМВОЛА
@@ -68,7 +68,6 @@ namespace ForRequest
             {
                 gameView.ShowNotification("Введіть символ або слово", Color.Yellow);
             }
-
             gameView.ShowAnswer(TempStar);
             gameView.ShowScore(Score);
         }

@@ -46,8 +46,6 @@ namespace ForRequest
             gameLogic.Start();
         }
 
-        
-
         private void button2_Click(object sender, EventArgs e)
         {
             string input = textBox1.Text;
