@@ -15,10 +15,6 @@ namespace ForRequest
 {
     public partial class Form1 : Form, IGameView
     {
-        /*string TempStar;
-        string CheckStar;
-        string Answer;
-        int Score = 0;*/
         GameLogic gameLogic;
 
         public void ShowGameOver()
@@ -49,8 +45,6 @@ namespace ForRequest
             gameLogic = new GameLogic(this);
             gameLogic.Start();
         }
-
-        
 
         private void button2_Click(object sender, EventArgs e)
         {

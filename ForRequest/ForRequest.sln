@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForRequest", "ForRequest\ForRequest.csproj", "{C0DE30D2-2BA1-4446-A0FF-5872636284FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gwg.test", "UnitTestProject1\gwg.test.csproj", "{73307FA1-4F4C-44AE-8FC5-ADB4BBCDEFB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C0DE30D2-2BA1-4446-A0FF-5872636284FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0DE30D2-2BA1-4446-A0FF-5872636284FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0DE30D2-2BA1-4446-A0FF-5872636284FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73307FA1-4F4C-44AE-8FC5-ADB4BBCDEFB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73307FA1-4F4C-44AE-8FC5-ADB4BBCDEFB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73307FA1-4F4C-44AE-8FC5-ADB4BBCDEFB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73307FA1-4F4C-44AE-8FC5-ADB4BBCDEFB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

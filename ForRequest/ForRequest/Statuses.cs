@@ -12,4 +12,5 @@ namespace ForRequest
         Right = 1,
         AlreadyOpened = 2
     }
+
 }

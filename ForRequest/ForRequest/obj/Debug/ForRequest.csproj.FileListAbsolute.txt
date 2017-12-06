@@ -20,3 +20,5 @@ F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.Proper
 F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.csproj.GenerateResource.Cache
 F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.exe
 F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.pdb
+F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.Login.resources
+F:\C# projects\guess-word-game\ForRequest\ForRequest\obj\Debug\ForRequest.Reg.resources
